@@ -9,7 +9,6 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, columnDefinition = ("INT(11) UNSIGNED"))
     private long id;
 
     @Column(length =25, nullable = false, unique = true)
@@ -27,8 +26,27 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    //@OneToMany(mappedBy="user")
-    //private List<Campaign> campaigns;
+//    @OneToMany(mappedBy = "user")
+//    private List<Campaign> campaigns;
+
+    public User(User copy) {
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+//        campaigns = copy.campaigns;
+        first_name = copy.first_name;
+        last_name = copy.last_name;
+    }
+
+    public User(long id, String email, String username, String password, String first_name, String last_name ){ //List<Campaign> campaigns,
+        this.last_name = last_name;
+        this.first_name = first_name;
+//        this.campaigns = campaigns;
+        this.email = email;
+        this.id = id;
+        this.username = username;
+    }
 
     public User() {
     }
@@ -80,4 +98,12 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+//    public List<Campaign> getCampaigns() {
+//        return campaigns;
+//    }
+//
+//    public void setCampaigns(List<Campaign> campaigns) {
+//        this.campaigns = campaigns;
+//    }
 }
