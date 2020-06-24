@@ -9,18 +9,18 @@ public class Campaign {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name="campaign_id", nullable = false)
     private long id;
-
-    @ManyToOne
-    @JoinColumn(name = "dm")
-    private User dm;
 
     @Column(length = 200, nullable = false)
     private String name;
 
     @Column(nullable = false, columnDefinition="text")
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "dm")
+    private User dm;
+
 
     public Campaign(Campaign copy) {
         this.id = copy.id; // This line is SUPER important! Many things won't work if it's absent
@@ -38,5 +38,37 @@ public class Campaign {
 
     public Campaign (){
 
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public User getDm() {
+        return dm;
+    }
+
+    public void setDm(User dm) {
+        this.dm = dm;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

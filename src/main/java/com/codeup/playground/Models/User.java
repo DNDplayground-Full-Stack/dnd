@@ -11,16 +11,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(length =25, nullable = false, unique = true)
+//    @Column(nullable = false, name = "user_role")
+//    private String userRole;
+
+    @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(length = 50, nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(length = 25, nullable = false)
+    @Column(nullable = false)
     private String first_name;
 
-    @Column(length = 25, nullable = false)
+    @Column(nullable = false)
     private String last_name;
 
     @Column(nullable = false)
@@ -28,6 +31,9 @@ public class User {
 
 //    @OneToMany(mappedBy = "user")
 //    private List<Campaign> campaigns;
+
+    public User() {
+    }
 
     public User(User copy) {
         id = copy.id; // This line is SUPER important! Many things won't work if it's absent
@@ -39,16 +45,14 @@ public class User {
         last_name = copy.last_name;
     }
 
-    public User(long id, String email, String username, String password, String first_name, String last_name ){ //List<Campaign> campaigns,
+    public User(long id, String email, String username, String password, String first_name, List<Campaign> campaigns, String last_name ){ //List<Campaign> campaigns,
         this.last_name = last_name;
         this.first_name = first_name;
 //        this.campaigns = campaigns;
         this.email = email;
         this.id = id;
         this.username = username;
-    }
-
-    public User() {
+        this.password = password;
     }
 
     public long getId() {
