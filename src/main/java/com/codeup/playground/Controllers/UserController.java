@@ -24,7 +24,7 @@ public class UserController {
         this.campaignDao = campaignDao;
     }
 
-    @GetMapping("/sign-up")
+    @GetMapping("/register")
     public String showSignUpForm(Model model){
         model.addAttribute("user", new User());
         return "users/sign-up";
@@ -46,8 +46,13 @@ public class UserController {
             model.addAttribute("campaigns", campaignDao.findAll());
             return "users/profile";
         }
-        return "users/login";
+        return "Login";
 
+    }
+
+    @GetMapping("/search")
+    public String search(){
+        return "Search";
     }
 
 }

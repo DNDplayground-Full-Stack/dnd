@@ -5,11 +5,11 @@
     height: auto!important;
 }
 .navbar-nav{
-    background-color:#0E3E4F;
+    background-color:black;
 }
 
 .navbar{
-    background-color:#0E3E4F;
+    background-color:black;
 }
 
 .navbar-a-links{
@@ -17,10 +17,8 @@
 }
 
 .navbar-a-links:hover {
-    color:#2BA4B9 !important;
-    /*-ms-transform: scale(1.1); !* IE 9 *!*/
-    /*-webkit-transform: scale(1.1); !* Safari 3-8 *!*/
-    /*transform: scale(1.1);*/
+    color:darkred !important;
+    font-weight: bold;
 }
 
 .navbar-brand-text {
@@ -52,5 +50,5 @@
 .navbar-btn {
     outline: none;
     border: 0;
-    background: #0E3E4F;
+    background: black;
 }

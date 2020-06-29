@@ -16,41 +16,33 @@
             <ul class="navbar-nav ml-auto text-right pr-2">
                 <th:block sec:authorize="isAuthenticated()">
                     <li class="nav-item">
-                        <a class="nav-link navbar-a-links" th:href="@{/login}">Login</a>
+                        <a class="nav-link navbar-a-links" th:href="@{/logout}">Logout</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar-a-links" th:href="@{/posts}">Posts</a>
+                        <a class="nav-link navbar-a-links" th:href="@{/campaigns}">Campaigns</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link navbar-a-links" th:href="@{posts/create}">Create Post</a>
-
+                        <a class="nav-link navbar-a-links" th:href="@{/campaigns/create}">Create Campaign</a>
                     </li>
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link navbar-a-links" th:href="@{/}">Profile</a>-->
-<!--                    </li>-->
                     <li class="nav-item">
                         <a class="nav-link navbar-a-links" th:href="@{/search}">Search</a>
                     </li>
-<!--                    <li class="nav-item">-->
-<!--                        <form th:action="@{/logout}" th:method="post" class="pull-right">-->
-<!--                            <button class="nav-link navbar-a-links navbar-btn">Logout</button>-->
-<!--                        </form>-->
-<!--                    </li>-->
+
                 </th:block>
-<!--                <th:block sec:authorize="isAnonymous()">-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link navbar-a-links" th:href="@{/recipes}">Recipes</a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link navbar-a-links" th:href="@{/sign-up}">Register</a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link navbar-a-links" th:href="@{/login}">Login</a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link navbar-a-links" th:href="@{/aboutUs}">About Us</a>-->
-<!--                    </li>-->
-<!--                </th:block>-->
+                <th:block sec:authorize="!isAuthenticated()">
+                    <li class="nav-item">
+                        <a class="nav-link navbar-a-links" th:href="@{/login}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-a-links" th:href="@{/campaigns}">Campaigns</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-a-links" th:href="@{/register}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-a-links" th:href="@{/search}">Search</a>
+                    </li>
+                </th:block>
             </ul>
         </div>
     </nav>

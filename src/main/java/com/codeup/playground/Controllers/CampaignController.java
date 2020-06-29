@@ -22,27 +22,16 @@ public class CampaignController {
         this.campaignDao = campaignDao;
     }
 
-    @GetMapping("/campaign")
+    @GetMapping("/campaigns")
     public String welcome(Model model) {
         if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() != "anonymousUser") {
             User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             model.addAttribute("user", loggedIn);
         }
         List<Campaign> campaigns = campaignDao.findAll();
-        System.out.println(campaigns);
+//        System.out.println(campaigns);
         model.addAttribute("campaigns", campaigns);
         return "campaigns/index";
-    }
-
-    @GetMapping("/campaigns/{id}")
-    public String getIndividualPost(Model model, @PathVariable long id) {
-        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() != "anonymousUser") {
-            User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            model.addAttribute("user", loggedIn);
-        }
-        Campaign campaign = campaignDao.getOne(id);
-        model.addAttribute("campaign", campaign);
-        return "individualPost";
     }
 
     @GetMapping("/campaign/create")
@@ -70,7 +59,7 @@ public class CampaignController {
     @GetMapping("/campaign/{id}/edit")
     public String EditPost(@PathVariable long id, Model model) {
         model.addAttribute("campaign", campaignDao.getOne(id));
-        return "campaign/edit";
+        return "campaigns/edit";
     }
 
     @PostMapping("/campaign/{id}/edit")
@@ -81,20 +70,29 @@ public class CampaignController {
         campaign.setDm(u);
         campaign.setName(name);
         campaignDao.save(campaignToEdit);
-        return "redirect:/profile";
+        return "redirect:/users/profile";
     }
 
     @PostMapping("/campaign/{id}/delete")
     public String deletePost(@PathVariable long id) {
         campaignDao.deleteById(id);
-        return "/campaign/index";
+        return "redirect:/campaigns/index";
     }
 
-    @PostMapping("/campaign/{id}")
-    public String viewIndividualPost(@PathVariable long id, Model model) {
+//    @PostMapping("/campaign/{id}")
+//    public String viewIndividualPost(@PathVariable long id, Model model) {
+//        Campaign campaign = campaignDao.getOne(id);
+//        model.addAttribute("campaign", campaign);
+//        return "campaign";
+//    }
+    @GetMapping("/campaigns/{id}")
+    public String getIndividualPost(Model model, @PathVariable long id) {
+        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() != "anonymousUser") {
+            User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            model.addAttribute("user", loggedIn);
+        }
         Campaign campaign = campaignDao.getOne(id);
         model.addAttribute("campaign", campaign);
-        return "campaign";
+        return "campaigns/individualCampaign";
     }
-
 }
