@@ -52,3 +52,10 @@
     border: 0;
     background: black;
 }
+.mountain-background-image {
+    background-image: url("../img/landscape.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

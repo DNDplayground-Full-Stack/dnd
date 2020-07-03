@@ -1,9 +1,40 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" class="m-0 p-0 h-100" lang="en">
-<head th:replace="partials/head :: head('Login')"></head>
+<html xmlns:th="http://www.thymeleaf.org" class="h-100" lang="en">
+<head th:replace="partials/head :: head('Login')">
+<!--    <style>-->
+<!--        .login-background-image {-->
+<!--            background-image: url("../static/img/landscape.jpg");-->
+<!--            -webkit-background-size: cover;-->
+<!--            -moz-background-size: cover;-->
+<!--            -o-background-size: cover;-->
+<!--            background-size: cover;-->
+<!--        }-->
+<!--    </style>-->
+</head>
 
-<body>
+<body class="mountain-background-image h-100">
 <nav th:replace="partials/navbar :: navbar"></nav>
-Login
+<div class="container d-flex h-100">
+    <div class="row col-sm-12 col-md-6 justify-content-center align-self-center mx-auto text-center p-3 card card-block shadow-lg login-box-image">
+        <h1 class="login-text">Login</h1>
+        <br>
+        <div th:if="${param.error}">
+            <p>Invalid Username and Password.</p>
+        </div>
+        <div th:if="${param.logout}">
+            <p>You have been logged out.</p>
+        </div>
+        <form th:action="@{/login}" method="post">
+            <label class="font-weight-bold" for="username">Username</label><br>
+            <input id="username" placeholder="Enter username..." name="username" type="text" class="mx-auto w-75 shadow-sm form-control"/><br>
+            <label class="font-weight-bold" for="password">Password</label><br>
+            <input id="password" placeholder="Enter password..." name="password" type="password" class="mx-auto w-75 shadow-sm form-control"/><br>
+            <br>
+            <input class="shadow main-styling-for-buttons mb-3 landingPageNoUnderline landingPage-a-links" type="submit" value="Login"/>
+        </form>
+        <p style="float: left;" class="p-1 m-0">Don't have an account?</p>
+        <p style="float: left;" class="p-1 m-0"><a class="profileFromRecipeAnchorTags" href="/sign-up">Register</a> to submit your recipes today!</p>
+    </div>
+</div>
 </body>
 </html>
