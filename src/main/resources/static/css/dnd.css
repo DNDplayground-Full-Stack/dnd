@@ -12,62 +12,71 @@ html, body {
     width: 100vw;
     height: 100vh;
 }
-.background{
+
+.background {
     background-color: lightgray;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
 }
+
 .mission {
     grid-area: 2 / 2 / 5 / 4;
     padding: 2em;
     margin: 1em;
     background-color: lightgray;
 }
+
 .dice {
     grid-area: 2 / 4 / 3 / 5;
     padding: .75em;
     margin: 1em;
     background-color: lightgray;
 }
+
 .character {
     grid-area: 3 / 4 / 5 / 5;
     padding: .75em;
     margin: 1em;
     background-color: lightgray;
 }
+
 .footer {
     grid-area: 5 / 1 / 6 / 6;
 }
+
 .card2 {
-    text-align:center;
+    text-align: center;
     background: white;
     border-radius: 15px;
-    -webkit-transition:  box-shadow .6s ease-out;
+    -webkit-transition: box-shadow .6s ease-out;
     box-shadow: .8px .9px 3px black;
     overflow: auto;
+}
 
-}
-.card2:hover{
+.card2:hover {
     box-shadow: 1px 8px 20px black;
-    -webkit-transition:  box-shadow .6s ease-in;
+    -webkit-transition: box-shadow .6s ease-in;
 }
+
 /*===================NAV STYLING==============================================================================*/
-a:hover{
+a:hover {
     color: slategrey;
 }
-.body-text{
+
+.body-text {
     font-weight: bold;
     font-size: large;
 }
 
-.scrollText{
+.scrollText {
     font-weight: lighter;
     font-family: 'Marck Script', cursive;
     font-size: 2.4em;
 }
-button{
+
+button {
     width: 8em;
     background: white;
     color: black;
@@ -76,31 +85,37 @@ button{
     text-transform: uppercase;
     transition: .2s smooth;
 }
-button:hover{
+
+button:hover {
     background-color: red;
     color: white;
     box-shadow: 1px 3px 5px black;
     border: none;
 }
+
 /*===================BODY TEXT STYLING========================================================================*/
 
-.diceText{
+.diceText {
     font-size: 2em;
 }
-.npcText{
+
+.npcText {
     font-size: 2em;
     margin-top: .5em;
 }
-.campaign-name{
+
+.campaign-name {
     color: #EC1A23;
     text-shadow: 1px 0 black, 0 1px black, 1px 0 black, 0 1px black;
 }
+
 a {
     color: white;
 }
+
 .header {
     background-color: black;
-    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .1);
     position: fixed;
     width: 100%;
     z-index: 3;
@@ -132,41 +147,52 @@ a {
     height: 100vh;
     width: 100vw;
 }
-.linkName h1:hover{
+
+.linkName h1:hover {
     color: red;
 }
+
 .navBar {
     grid-area: 1 / 1 / 2 / 6;
 }
+
 .search-section {
     grid-area: 2 / 2 / 3 / 5;
 }
+
 .search-results {
     grid-area: 3 / 2 / 5 / 5;
     padding: 2em;
 }
-.newClass{
+
+.newClass {
     display: none;
 }
-.search{
+
+.search {
     align-content: center;
     font-size: 1.2em;
 }
-.search> input{
+
+.search > input {
     width: 200px;
 }
+
 .center-flex {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-.center-text{
+
+.center-text {
     text-align: center;
 }
-.link-name{
+
+.link-name {
     padding: 2em;
 }
-button{
+
+button {
     width: auto;
     padding: .3em;
     background: lightgray;
@@ -181,7 +207,7 @@ a {
     color: white;
 }
 
-.dragon{
+.dragon {
     background-image: url(../img/monster-dnd.png);
     background-repeat: no-repeat;
     position: fixed;
