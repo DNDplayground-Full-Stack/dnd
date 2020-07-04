@@ -1,13 +1,10 @@
 /*===================GRID LAYOUT==============================================================================*/
 
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-body{
-    font-family: "cursive", Times, Serif;
-}
+/**{*/
+/*    box-sizing: border-box;*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*}*/
 .parent {
     display: grid;
     grid-template-columns: 5% repeat(3, 30%) 5%;
@@ -15,37 +12,33 @@ body{
     width: 100vw;
     height: 100vh;
 }
-.background{
-    background-color: lightgray;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+/*.background{*/
+/*    background-color: lightgray;*/
+/*    background-size: cover;*/
+/*    background-attachment: fixed;*/
+/*    background-position: center;*/
+/*    background-repeat: no-repeat;*/
+/*}*/
 .mission {
     grid-area: 2 / 2 / 5 / 4;
     padding: 2em;
     margin: 1em;
     background-color: lightgray;
-    /*border-radius: 15px;*/
 }
 .dice {
     grid-area: 2 / 4 / 3 / 5;
     padding: .75em;
     margin: 1em;
     background-color: lightgray;
-    /*border-radius: 15px;*/
 }
 .character {
     grid-area: 3 / 4 / 5 / 5;
     padding: .75em;
     margin: 1em;
     background-color: lightgray;
-    /*border-radius: 15px;*/
 }
 .footer {
     grid-area: 5 / 1 / 6 / 6;
-
 }
 .card2 {
     text-align:center;
@@ -61,7 +54,6 @@ body{
 }
 /*===================NAV STYLING==============================================================================*/
 a:hover{
-    /*font-size: 1.2em;*/
     color: slategrey;
 }
 .body-text{
@@ -76,12 +68,8 @@ a:hover{
 }
 button{
     width: 8em;
-    padding: .5em;
-    background: lightgray;
+    background: white;
     color: black;
-    /*border: 1px solid black;*/
-    margin-top: 1em;
-    margin-bottom: 2em;
     font-weight: bold;
     font-size: .55em;
     text-transform: uppercase;
@@ -92,15 +80,11 @@ button:hover{
     color: white;
     box-shadow: 1px 3px 5px black;
     border: none;
-
-    /*transform: scale(1.3);*/
 }
 /*===================BODY TEXT STYLING========================================================================*/
 
 .diceText{
     font-size: 2em;
-    /*margin-top: .5em;*/
-    /*padding: 1em;*/
 }
 .npcText{
     font-size: 2em;

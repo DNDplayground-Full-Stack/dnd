@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" class="m-0 p-0 h-100" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" class="h-100" lang="en">
 <head th:replace="partials/head :: head('Search')"></head>
 <body class="background">
 <nav th:replace="partials/navbar :: navbar"></nav>
@@ -9,7 +9,7 @@
 
     <div class="search-section search center-flex">
         <div>
-            <label for="search-selection">Search under: </label>
+            <label for="search-selection">Search under:</label>
             <select id="search-selection">
                 <option value="ability-scores">Abilities</option>
                 <option value="classes">Classes</option>
@@ -30,7 +30,7 @@
 
             <input type="text"  id="search-string" class="width" maxlength="100" placeholder="Enter search string here..." onsubmit="searchedFor()">
 
-            <button id="buttonSearch" >Search</button>
+            <button id="buttonSearch">Search</button>
 
         </div>
 
