@@ -1,10 +1,10 @@
 /*===================GRID LAYOUT==============================================================================*/
 
-/**{*/
-/*    box-sizing: border-box;*/
-/*    padding: 0;*/
-/*    margin: 0;*/
-/*}*/
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .parent {
     display: grid;
     grid-template-columns: 5% repeat(3, 30%) 5%;
@@ -12,13 +12,13 @@
     width: 100vw;
     height: 100vh;
 }
-/*.background{*/
-/*    background-color: lightgray;*/
-/*    background-size: cover;*/
-/*    background-attachment: fixed;*/
-/*    background-position: center;*/
-/*    background-repeat: no-repeat;*/
-/*}*/
+.background{
+    background-color: lightgray;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 .mission {
     grid-area: 2 / 2 / 5 / 4;
     padding: 2em;
@@ -46,6 +46,7 @@
     border-radius: 15px;
     -webkit-transition:  box-shadow .6s ease-out;
     box-shadow: .8px .9px 3px black;
+    overflow: auto;
 
 }
 .card2:hover{
@@ -119,9 +120,67 @@ a {
     border-right: 1px solid #f4f4f4;
     text-decoration: none;
 }
-@media (min-width: 48em) {
 
+/*=====================================dnd search css================================*/
+
+.parent-search {
+    display: grid;
+    grid-template-columns: 5% repeat(3, 30%) 5%;
+    grid-template-rows: 8% 6% 39% 39% 8%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 100vh;
+    width: 100vw;
 }
+.linkName h1:hover{
+    color: red;
+}
+.navBar {
+    grid-area: 1 / 1 / 2 / 6;
+}
+.search-section {
+    grid-area: 2 / 2 / 3 / 5;
+}
+.search-results {
+    grid-area: 3 / 2 / 5 / 5;
+    padding: 2em;
+}
+.newClass{
+    display: none;
+}
+.search{
+    align-content: center;
+    font-size: 1.2em;
+}
+.search> input{
+    width: 200px;
+}
+.center-flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.center-text{
+    text-align: center;
+}
+.link-name{
+    padding: 2em;
+}
+button{
+    width: auto;
+    padding: .3em;
+    background: lightgray;
+    color: black;
+    border: 1px solid black;
+    box-shadow: 0 0 5px black;
+    font-weight: bold;
+    font-size: .55em;
+}
+
+a {
+    color: white;
+}
+
 .dragon{
     background-image: url(../img/monster-dnd.png);
     background-repeat: no-repeat;
@@ -136,3 +195,6 @@ a {
     /*transform: scaleX(-1);*/
 }
 
+@media (min-width: 48em) {
+
+}
