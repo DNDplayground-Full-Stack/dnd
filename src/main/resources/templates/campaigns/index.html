@@ -1,9 +1,50 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" class="m-0 p-0 h-100">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      class="m-0 p-0 h-100">
 <head th:replace="partials/head :: head('Campaigns')"></head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 
-campaign index
+<div class="container">
+
+<h1 class="text-center m-2">Campaigns</h1>
+
+<div class="card-columns">
+
+
+    <div th:each="campaign : ${campaigns}">
+
+        <div sec:authorize="isAuthenticated()">
+            <div class="card shadow bg-white rounded">
+                <div class="card-body">
+                    <h2 class="card-title text-center" th:text="${campaign.name}"></h2>
+                    <h4 th:text="${campaign.description}"></h4>
+                </div>
+                <div class="card-footer">
+                    <div th:if="${user.id} == ${campaign.getDm().id}">
+                        <h1>edit/delete</h1>
+                    </div>
+                    <div th:if="${user.id} != ${campaign.getDm().id}">
+                        <h4 th:text="${campaign.dm.username}"></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div sec:authorize="!isAuthenticated()">
+            <div class="card shadow bg-white rounded">
+                <div class="card-body">
+                    <h2 class="card-title text-center" th:text="${campaign.name}"></h2>
+                    <h4 th:text="${campaign.description}"></h4>
+                </div>
+                <div class="card-footer">
+                    <h4 th:text="${campaign.dm.username}"></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
 </body>
 </html>

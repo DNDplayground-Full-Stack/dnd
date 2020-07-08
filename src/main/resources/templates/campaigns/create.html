@@ -4,6 +4,31 @@
 
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-create campaign
+<div class="container">
+
+    <div class="card-container mx-5">
+        <div class="card bg-light text-dark col-xl-4">
+            <div class="card-body">
+                <h5 class="card-title">Create a campaign</h5>
+                <hr>
+
+                <form th:action="@{|/campaign/create|}" th:method="POST" th:object="${campaign}">
+                    <div class="col-xl-12">
+                        <label for="name"> Name</label>
+                        <input type="text" th:field="*{name}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="description">description</label>
+                        <input type="text" th:field="*{description}" placeholder="Enter text"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <input id="save" class="" value="Create Post" type="submit"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
 </body>
 </html>
