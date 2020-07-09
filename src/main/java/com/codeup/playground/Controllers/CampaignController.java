@@ -29,7 +29,6 @@ public class CampaignController {
             model.addAttribute("user", loggedIn);
         }
         List<Campaign> campaigns = campaignDao.findAll();
-//        System.out.println(campaigns);
         model.addAttribute("campaigns", campaigns);
         return "campaigns/index";
     }

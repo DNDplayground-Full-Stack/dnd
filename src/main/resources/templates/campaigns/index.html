@@ -17,7 +17,9 @@
         <div sec:authorize="isAuthenticated()">
             <div class="card shadow bg-white rounded">
                 <div class="card-body">
-                    <h2 class="card-title text-center" th:text="${campaign.name}"></h2>
+                    <a th:href="@{|/campaigns/${campaign.id}|}">
+                        <h2 class="text-center" th:text="${campaign.name}"></h2>
+                    </a>
                     <h4 th:text="${campaign.description}"></h4>
                 </div>
                 <div class="card-footer">
@@ -34,7 +36,9 @@
         <div sec:authorize="!isAuthenticated()">
             <div class="card shadow bg-white rounded">
                 <div class="card-body">
-                    <h2 class="card-title text-center" th:text="${campaign.name}"></h2>
+                    <a th:href="@{|/campaigns/${campaign.id}|}">
+                        <h2 class="text-center" th:text="${campaign.name}"></h2>
+                    </a>
                     <h4 th:text="${campaign.description}"></h4>
                 </div>
                 <div class="card-footer">

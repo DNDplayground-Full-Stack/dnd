@@ -4,7 +4,7 @@ package com.codeup.playground.Models;
 import javax.persistence.*;
 
 @Entity
-@Table(name="campaigns")
+@Table(name = "campaigns")
 public class Campaign {
 
     @Id
@@ -14,13 +14,12 @@ public class Campaign {
     @Column(length = 200, nullable = false)
     private String name;
 
-    @Column(nullable = false, columnDefinition="text")
+    @Column(nullable = false, columnDefinition = "text")
     private String description;
 
     @ManyToOne
     @JoinColumn(name = "dm")
     private User dm;
-
 
     public Campaign(Campaign copy) {
         this.id = copy.id; // This line is SUPER important! Many things won't work if it's absent
@@ -36,7 +35,7 @@ public class Campaign {
         this.id = id;
     }
 
-    public Campaign (){
+    public Campaign() {
 
     }
 
@@ -71,4 +70,5 @@ public class Campaign {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }

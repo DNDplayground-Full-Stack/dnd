@@ -203,9 +203,9 @@ button {
     font-size: .55em;
 }
 
-a {
-    color: white;
-}
+/*a {*/
+/*    color: white;*/
+/*}*/
 
 .dragon {
     background-image: url(../img/monster-dnd.png);

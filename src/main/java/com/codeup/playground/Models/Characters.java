@@ -61,12 +61,6 @@ public class Characters {
     @Column(nullable = false, columnDefinition = ("INT(11) UNSIGNED"))
     private int charisma;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "player")
-//    private List<String> skillProficiencies;
-//
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-//    private List<String> savingThrows;
-
     @Column(nullable = false, columnDefinition = ("INT(11) UNSIGNED"))
     private int armourClass;
 
@@ -160,11 +154,11 @@ public class Characters {
         this.biography = biography;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -174,14 +168,6 @@ public class Characters {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public String getRace() {
@@ -206,6 +192,14 @@ public class Characters {
 
     public void setLevel(String level) {
         this.level = level;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Campaign getCampaign() {
@@ -294,5 +288,77 @@ public class Characters {
 
     public void setCharisma(int charisma) {
         this.charisma = charisma;
+    }
+
+    public int getArmourClass() {
+        return armourClass;
+    }
+
+    public void setArmourClass(int armourClass) {
+        this.armourClass = armourClass;
+    }
+
+    public int getInitiative() {
+        return initiative;
+    }
+
+    public void setInitiative(int initiative) {
+        this.initiative = initiative;
+    }
+
+    public int getMovement() {
+        return movement;
+    }
+
+    public void setMovement(int movement) {
+        this.movement = movement;
+    }
+
+    public int getMaxHitpoints() {
+        return maxHitpoints;
+    }
+
+    public void setMaxHitpoints(int maxHitpoints) {
+        this.maxHitpoints = maxHitpoints;
+    }
+
+    public int getCurrentHitPoints() {
+        return currentHitPoints;
+    }
+
+    public void setCurrentHitPoints(int currentHitPoints) {
+        this.currentHitPoints = currentHitPoints;
+    }
+
+    public int getTemporaryHitPoints() {
+        return temporaryHitPoints;
+    }
+
+    public void setTemporaryHitPoints(int temporaryHitPoints) {
+        this.temporaryHitPoints = temporaryHitPoints;
+    }
+
+    public int getMaxHitDice() {
+        return maxHitDice;
+    }
+
+    public void setMaxHitDice(int maxHitDice) {
+        this.maxHitDice = maxHitDice;
+    }
+
+    public int getCurrentHitDice() {
+        return currentHitDice;
+    }
+
+    public void setCurrentHitDice(int currentHitDice) {
+        this.currentHitDice = currentHitDice;
+    }
+
+    public String getBiography() {
+        return biography;
+    }
+
+    public void setBiography(String biography) {
+        this.biography = biography;
     }
 }
