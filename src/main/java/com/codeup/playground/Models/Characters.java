@@ -23,6 +23,9 @@ public class Characters {
     @Column(nullable = false)
     private String level;
 
+    @Column
+    private String imageUrl;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -110,8 +113,6 @@ public class Characters {
         intelligence = copy.intelligence;
         wisdom = copy.wisdom;
         charisma = copy.charisma;
-//        skillProficiencies = copy.skillProficiencies;
-//        savingThrows = copy.savingThrows;
         armourClass = copy.armourClass;
         initiative = copy.initiative;
         movement = copy.movement;
@@ -123,12 +124,12 @@ public class Characters {
         biography = copy.biography;
     }
 
-    public Characters(long id, String name, String race, String playerClass, String level, User user, Campaign campaign, String background, String alignment, long xp, int proficiencyBonus, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int armourClass, int initiative, int movement, int maxHitpoints, int currentHitPoints, int temporaryHitPoints, int maxHitDice, int currentHitDice, String biography) {//List<String> skillProficiencies, List<String> savingThrows,
-        this.id = id;
+    public Characters(String name, String race, String playerClass, String level, String imageUrl, User user, Campaign campaign, String background, String alignment, long xp, int proficiencyBonus, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int armourClass, int initiative, int movement, int maxHitpoints, int currentHitPoints, int temporaryHitPoints, int maxHitDice, int currentHitDice, String biography) {
         this.name = name;
         this.race = race;
         this.playerClass = playerClass;
         this.level = level;
+        this.imageUrl = imageUrl;
         this.user = user;
         this.campaign = campaign;
         this.background = background;
@@ -141,8 +142,6 @@ public class Characters {
         this.intelligence = intelligence;
         this.wisdom = wisdom;
         this.charisma = charisma;
-//        this.skillProficiencies = skillProficiencies;
-//        this.savingThrows = savingThrows;
         this.armourClass = armourClass;
         this.initiative = initiative;
         this.movement = movement;
@@ -360,5 +359,13 @@ public class Characters {
 
     public void setBiography(String biography) {
         this.biography = biography;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

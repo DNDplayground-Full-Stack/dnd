@@ -29,8 +29,8 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-//    @OneToMany(mappedBy = "user")
-//    private List<Campaign> campaigns;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Notes> notes;
 
     public User() {
     }
@@ -103,11 +103,4 @@ public class User {
         this.password = password;
     }
 
-//    public List<Campaign> getCampaigns() {
-//        return campaigns;
-//    }
-//
-//    public void setCampaigns(List<Campaign> campaigns) {
-//        this.campaigns = campaigns;
-//    }
 }
