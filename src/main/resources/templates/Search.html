@@ -60,21 +60,185 @@
                 var results = data.results;
                 console.log(results);
                 var namesArray = [];
+                var child = $('#names').lastElementChild;
+                while(child){
+                    $('#names').removeChild(child);
+                    child = $('#names').lastElementChild;
+                }
                 for (var i = 0; i < results.length; i++) {
                     namesArray.push(results[i].name);
                     $('#names').append("<div class='linkName' id=\'" + i + "\'><h1>" + namesArray[i] + "</h1></div>"); // add the html string to the body element.
 
                 }
                 $("div.linkName").append(function () {
-                    var sectionOne = "<div class='hit_dice newClass'><h5>" + data.results[this.id].hit_dice + "</h5></div>";
-                    var sectionTwo = "<div class='hp_at_1st_level newClass'><h5>" + data.results[this.id].hp_at_1st_level + "</h5></div>";
-                    $(this).append(sectionOne); // add the html string to the body element.
-                    $(this).append(sectionTwo); // add the html string to the body element.
+
+                    //Ability Scores
+                    if (searchSelection == "ability-scores") {
+
+                        // var sectionOne = "<div class='hit_dice newClass'><h5>Hit Dice: " + data.results[this.id].hit_dice + "</h5></div>";
+                        // var sectionTwo = "<div class='hp_at_1st_level newClass'><h5>HP at Level 1" + data.results[this.id].hp_at_1st_level + "</h5></div>";
+                        // $(this).append(sectionOne); // add the html string to the body element.
+                        // $(this).append(sectionTwo); // add the html string to the body element.
+                    }
+
+                    //Classes
+                    if (searchSelection == "classes") {
+                        var sectionOne = "<div class='hit_dice newClass'><h5>Hit Dice: " + data.results[this.id].hit_dice + "</h5></div>";
+                        var sectionTwo = "<div class='hp_at_1st_level newClass'><h5>HP at Level : " + data.results[this.id].hp_at_1st_level + "</h5></div>";
+                        var sectionThree = "<div class='hp_at_1st_level newClass'><h5>Saving Throws: " + data.results[this.id].prof_saving_throws + "</h5></div>";
+                        var sectionFour = "<div class='hp_at_1st_level newClass'><h5>Weapons: " + data.results[this.id].prof_weapons + "</h5></div>";
+                        var sectionFive = "<div class='hp_at_1st_level newClass'><h5>Armor: " + data.results[this.id].prof_armor + "</h5></div>";
+                        $(this).append(sectionOne); // add the html string to the body element.
+                        $(this).append(sectionTwo); // add the html string to the body element.
+                        $(this).append(sectionThree); // add the html string to the body element.
+                        $(this).append(sectionFour); // add the html string to the body element.
+                        $(this).append(sectionFive); // add the html string to the body element.
+                    }
+
+
+                    //Conditions
+                    if (searchSelection == "conditions") {
+                        // var sectionOne = "<div class='hit_dice newClass'><h5>Hit Dice: " + data.results[this.id].hit_dice + "</h5></div>";
+                        // var sectionTwo = "<div class='hp_at_1st_level newClass'><h5>HP at Level 1" + data.results[this.id].hp_at_1st_level + "</h5></div>";
+                        // $(this).append(sectionOne); // add the html string to the body element.
+                        // $(this).append(sectionTwo); // add the html string to the body element.
+                    }
+
+
+                    //Magic Itemns
+                    if (searchSelection == "magicitems") {
+                        // var sectionOne = "<div class='hit_dice newClass'><h5>Hit Dice: " + data.results[this.id].hit_dice + "</h5></div>";
+                        // var sectionTwo = "<div class='hp_at_1st_level newClass'><h5>HP at Level 1" + data.results[this.id].hp_at_1st_level + "</h5></div>";
+                        // $(this).append(sectionOne); // add the html string to the body element.
+                        // $(this).append(sectionTwo); // add the html string to the body element.
+                    }
+
+
+                    //Languages
+                    if (searchSelection == "languages") {
+                        // var sectionOne = "<div class='hit_dice newClass'><h5>Hit Dice: " + data.results[this.id].hit_dice + "</h5></div>";
+                        // var sectionTwo = "<div class='hp_at_1st_level newClass'><h5>HP at Level 1" + data.results[this.id].hp_at_1st_level + "</h5></div>";
+                        // $(this).append(sectionOne); // add the html string to the body element.
+                        // $(this).append(sectionTwo); // add the html string to the body element.
+                    }
+
+
+                    //Monsters
+                    if (searchSelection == "monsters") {
+                        // var sectionOne = "<div class='hit_dice newClass'><h5>Hit Dice: " + data.results[this.id].hit_dice + "</h5></div>";
+                        // var sectionTwo = "<div class='hp_at_1st_level newClass'><h5>HP at Level 1" + data.results[this.id].hp_at_1st_level + "</h5></div>";
+                        // $(this).append(sectionOne); // add the html string to the body element.
+                        // $(this).append(sectionTwo); // add the html string to the body element.
+                    }
+
+
+                    //Races
+                    if (searchSelection == "races") {
+                        // var sectionOne = "<div class='hit_dice newClass'><h5>Hit Dice: " + data.results[this.id].hit_dice + "</h5></div>";
+                        // var sectionTwo = "<div class='hp_at_1st_level newClass'><h5>HP at Level 1" + data.results[this.id].hp_at_1st_level + "</h5></div>";
+                        // $(this).append(sectionOne); // add the html string to the body element.
+                        // $(this).append(sectionTwo); // add the html string to the body element.
+                    }
+
+
+                    //Skills
+                    if (searchSelection == "skills") {
+                        // var sectionOne = "<div class='hit_dice newClass'><h5>Hit Dice: " + data.results[this.id].hit_dice + "</h5></div>";
+                        // var sectionTwo = "<div class='hp_at_1st_level newClass'><h5>HP at Level 1" + data.results[this.id].hp_at_1st_level + "</h5></div>";
+                        // $(this).append(sectionOne); // add the html string to the body element.
+                        // $(this).append(sectionTwo); // add the html string to the body element.
+                    }
+
+
+                    //Spells
+                    if (searchSelection == "spells") {
+                        // var sectionOne = "<div class='hit_dice newClass'><h5>Hit Dice: " + data.results[this.id].hit_dice + "</h5></div>";
+                        // var sectionTwo = "<div class='hp_at_1st_level newClass'><h5>HP at Level 1" + data.results[this.id].hp_at_1st_level + "</h5></div>";
+                        // $(this).append(sectionOne); // add the html string to the body element.
+                        // $(this).append(sectionTwo); // add the html string to the body element.
+                    }
+
+
+                    //Weapons
+                    if (searchSelection == "weapons") {
+                        // var sectionOne = "<div class='hit_dice newClass'><h5>Hit Dice: " + data.results[this.id].hit_dice + "</h5></div>";
+                        // var sectionTwo = "<div class='hp_at_1st_level newClass'><h5>HP at Level 1" + data.results[this.id].hp_at_1st_level + "</h5></div>";
+                        // $(this).append(sectionOne); // add the html string to the body element.
+                        // $(this).append(sectionTwo); // add the html string to the body element.
+                    }
+
                 });
 
                 $("div.linkName").click(function () {
-                    $(this).children('.hit_dice').toggleClass('newClass');
-                    $(this).children('.hp_at_1st_level').toggleClass('newClass');
+
+                    //Ability Scores
+                    if (searchSelection == "ability-scores") {
+                        // $(this).children('.hit_dice').toggleClass('newClass');
+                        // $(this).children('.hp_at_1st_level').toggleClass('newClass');
+                    }
+
+
+                    //Classes
+                    if (searchSelection == "classes") {
+                        $(this).children('.hit_dice').toggleClass('newClass');
+                        $(this).children('.hp_at_1st_level').toggleClass('newClass');
+                    }
+
+
+                    //Conditions
+                    if (searchSelection == "conditions") {
+                        // $(this).children('.hit_dice').toggleClass('newClass');
+                        // $(this).children('.hp_at_1st_level').toggleClass('newClass');
+                    }
+
+
+                    //Magic Itemns
+                    if (searchSelection == "magicitems") {
+                        // $(this).children('.hit_dice').toggleClass('newClass');
+                        // $(this).children('.hp_at_1st_level').toggleClass('newClass');
+                    }
+
+
+                    //Languages
+                    if (searchSelection == "languages") {
+                        // $(this).children('.hit_dice').toggleClass('newClass');
+                        // $(this).children('.hp_at_1st_level').toggleClass('newClass');
+                    }
+
+
+                    //Monsters
+                    if (searchSelection == "monsters") {
+                        // $(this).children('.hit_dice').toggleClass('newClass');
+                        // $(this).children('.hp_at_1st_level').toggleClass('newClass');
+                    }
+
+
+                    //Races
+                    if (searchSelection == "races") {
+                        // $(this).children('.hit_dice').toggleClass('newClass');
+                        // $(this).children('.hp_at_1st_level').toggleClass('newClass');
+                    }
+
+
+                    //Skills
+                    if (searchSelection == "skills") {
+                        // $(this).children('.hit_dice').toggleClass('newClass');
+                        // $(this).children('.hp_at_1st_level').toggleClass('newClass');
+                    }
+
+
+                    //Spells
+                    if (searchSelection == "spells") {
+                        // $(this).children('.hit_dice').toggleClass('newClass');
+                        // $(this).children('.hp_at_1st_level').toggleClass('newClass');
+                    }
+
+
+                    //Weapons
+                    if (searchSelection == "weapons") {
+                        // $(this).children('.hit_dice').toggleClass('newClass');
+                        // $(this).children('.hp_at_1st_level').toggleClass('newClass');
+                    }
                 });
 
             });
