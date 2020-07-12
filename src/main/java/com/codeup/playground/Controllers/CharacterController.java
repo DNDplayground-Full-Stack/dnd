@@ -36,7 +36,31 @@ public class CharacterController {
     public String postCharacterCreate(Model model){
         Characters character = new Characters();
         User u = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
+//        character.setAlignment();
+//        character.setArmourClass();
+//        character.setBackground();
+//        character.setBiography();
+//        character.setCampaign();
+//        character.setCharisma();
+//        character.setConstitution();
+//        character.setCurrentHitDice();
+//        character.setDexterity();
+//        character.setCurrentHitPoints();
+//        character.setInitiative();
+//        character.setName();
+//        character.setRace();
+//        character.setPlayerClass();
+//        character.setLevel();
+//        character.setUser();
+//        character.setXp();
+//        character.setProficiencyBonus();
+//        character.setStrength();
+//        character.setIntelligence();
+//        character.setWisdom();
+//        character.setMovement();
+//        character.setMaxHitDice();
+//        character.setTemporaryHitPoints();
+//        character.setMaxHitpoints();
         return "redirect:/profile";
     }
 }
