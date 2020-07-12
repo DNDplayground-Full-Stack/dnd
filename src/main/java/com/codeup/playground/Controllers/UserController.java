@@ -3,6 +3,7 @@ package com.codeup.playground.Controllers;
 
 import com.codeup.playground.Models.User;
 import com.codeup.playground.Repositories.CampaignRepo;
+import com.codeup.playground.Repositories.CharacterRepo;
 import com.codeup.playground.Repositories.UserRepo;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,11 +18,13 @@ public class UserController {
     private UserRepo userDoa;
     private PasswordEncoder passwordEncoder;
     private CampaignRepo campaignDao;
+    private CharacterRepo characterDao;
 
-    public UserController(UserRepo userDoa, PasswordEncoder passwordEncoder, CampaignRepo campaignDao) {
+    public UserController(UserRepo userDoa, PasswordEncoder passwordEncoder, CampaignRepo campaignDao, CharacterRepo characterDao) {
         this.userDoa = userDoa;
         this.passwordEncoder = passwordEncoder;
         this.campaignDao = campaignDao;
+        this.characterDao = characterDao;
     }
 
     @GetMapping("/register")
@@ -44,6 +47,7 @@ public class UserController {
             User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             model.addAttribute("user", loggedIn);
             model.addAttribute("campaigns", campaignDao.findAll());
+            model.addAttribute("characters", characterDao.findAll());
             return "users/profile";
         }
         return "Login";

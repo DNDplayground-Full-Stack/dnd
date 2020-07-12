@@ -3,67 +3,67 @@
 <head th:replace="partials/head :: head('Profile')"></head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<div class="parent">
-    <div class="mission card2">
-        <h1 class="campaign-name">Campaign Name</h1>
-        <br>
-        <p class="scrollText">
-            Mission statement....... This is an adventure about dragon things and we will go do the killings of the dragons unless you die first because oh yeah there is monsters and you might not get along with people but you also might and learn lots of cool things so hey there's that but anyway... adventure and stuff!
-        </p>
-    </div>
-    <!--================================DICE ROLL====================================================================-->
 
-    <div class="dice bodyText card2">
-        <h3>Roll Some Dice!</h3>
-
-        <!--=======================================Dice Selector=====================================================-->
-        <label for="dice-selection" class="labels">Type of Dice: </label>
-        <select id="dice-selection">
-            <option value="">Select..</option>
-            <option value="4">D4</option>
-            <option value="6">D6</option>
-            <option value="8">D8</option>
-            <option value="10">D10</option>
-            <option value="12">D12</option>
-            <option value="20">D20</option>
-            <option value="100">D100</option>
-        </select>
-        <!--<br>-->
-        <!-- ========================================Number of Dice Selector=========================================-->
-        <br><label for="dice-num" class="labels">How Many? </label>
-        <select id="dice-num">
-            <option value="0">Select..</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-        </select>
-        <!--        <input type="text" id="dice-num" placeholder="Number of Dice..." onsubmit="diceRoll()">-->
-        <br>
-        <button onclick="diceRoll()">Roll!</button>
-        <br>
-        <div id="diceResult" class="diceText"></div>
-        <br>
+<h1 class="text-center" th:text="'Welcome, ' + ${user.username}"></h1>
 
 
-    </div>
-    <!--================================NPC GENERATOR================================================================-->
+<!--<div class="parent">-->
+<!--    <div class="mission card2">-->
+<!--     -->
+<!--    </div>-->
+<!--    &lt;!&ndash;================================DICE ROLL====================================================================&ndash;&gt;-->
 
-    <div class="character bodyText card2">
-        <h3> Non-Player Character Generater </h3>
-        <button onclick="generateNPC()">Generate</button>
-        <br>
-        <div id="charText" class="npcText"></div>
-    </div>
-<!--    <div class="dragon"></div>-->
-    <div class="footer"></div>
-</div>
+<!--    <div class="dice bodyText card2">-->
+<!--        <h3>Roll Some Dice!</h3>-->
+
+<!--        &lt;!&ndash;=======================================Dice Selector=====================================================&ndash;&gt;-->
+<!--        <label for="dice-selection" class="labels">Type of Dice: </label>-->
+<!--        <select id="dice-selection">-->
+<!--            <option value="">Select..</option>-->
+<!--            <option value="4">D4</option>-->
+<!--            <option value="6">D6</option>-->
+<!--            <option value="8">D8</option>-->
+<!--            <option value="10">D10</option>-->
+<!--            <option value="12">D12</option>-->
+<!--            <option value="20">D20</option>-->
+<!--            <option value="100">D100</option>-->
+<!--        </select>-->
+<!--        &lt;!&ndash;<br>&ndash;&gt;-->
+<!--        &lt;!&ndash; ========================================Number of Dice Selector=========================================&ndash;&gt;-->
+<!--        <br><label for="dice-num" class="labels">How Many? </label>-->
+<!--        <select id="dice-num">-->
+<!--            <option value="0">Select..</option>-->
+<!--            <option value="1">1</option>-->
+<!--            <option value="2">2</option>-->
+<!--            <option value="3">3</option>-->
+<!--            <option value="4">4</option>-->
+<!--            <option value="5">5</option>-->
+<!--            <option value="6">6</option>-->
+<!--            <option value="7">7</option>-->
+<!--            <option value="8">8</option>-->
+<!--            <option value="9">9</option>-->
+<!--            <option value="10">10</option>-->
+<!--        </select>-->
+<!--        &lt;!&ndash;        <input type="text" id="dice-num" placeholder="Number of Dice..." onsubmit="diceRoll()">&ndash;&gt;-->
+<!--        <br>-->
+<!--        <button onclick="diceRoll()">Roll!</button>-->
+<!--        <br>-->
+<!--        <div id="diceResult" class="diceText"></div>-->
+<!--        <br>-->
+
+
+<!--    </div>-->
+<!--    &lt;!&ndash;================================NPC GENERATOR================================================================&ndash;&gt;-->
+
+<!--    <div class="character bodyText card2">-->
+<!--        <h3> Non-Player Character Generater </h3>-->
+<!--        <button onclick="generateNPC()">Generate</button>-->
+<!--        <br>-->
+<!--        <div id="charText" class="npcText"></div>-->
+<!--    </div>-->
+<!--&lt;!&ndash;    <div class="dragon"></div>&ndash;&gt;-->
+<!--    <div class="footer"></div>-->
+<!--</div>-->
 <!--================================END OF PARENT GRID START OF JS===================================================-->
 
 <script>
