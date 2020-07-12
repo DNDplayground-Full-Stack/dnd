@@ -13,10 +13,103 @@
                 <hr>
 
                 <form th:action="@{|/characters/create|}" th:method="POST" th:object="${character}">
-<!--                    <div class="col-xl-12">-->
-<!--                        <label for="name"> Name</label>-->
-<!--                        <input type="text" th:field="*{name}" placeholder="Enter tile"/>-->
-<!--                    </div>-->
+                    <div class="col-xl-12">
+                        <label for="name"> Name</label>
+                        <input type="text" th:field="*{name}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="race"> Race</label>
+                        <input type="text" th:field="*{race}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="playerClass"> Player Class</label>
+                        <input type="text" th:field="*{playerClass}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="level"> Level</label>
+                        <input type="text" th:field="*{level}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="background"> Background</label>
+                        <input type="text" th:field="*{background}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="alignment"> Alignment</label>
+                        <input type="text" th:field="*{alignment}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="xp"> XP</label>
+                        <input type="text" th:field="*{xp}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="proficiencyBonus">Proficiency Bonus</label>
+                        <input type="text" th:field="*{proficiencyBonus}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="strength">Strength</label>
+                        <input type="text" th:field="*{strength}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="dexterity">Dexterity</label>
+                        <input type="text" th:field="*{dexterity}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="constitution">Constitution</label>
+                        <input type="text" th:field="*{constitution}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="intelligence">Intelligence</label>
+                        <input type="text" th:field="*{intelligence}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="wisdom">Wisdom</label>
+                        <input type="text" th:field="*{wisdom}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="charisma">Charisma</label>
+                        <input type="text" th:field="*{charisma}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="armourClass">Armour Class</label>
+                        <input type="text" th:field="*{armourClass}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="initiative">Initiative</label>
+                        <input type="text" th:field="*{initiative}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="movement">Movement</label>
+                        <input type="text" th:field="*{movement}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="maxHitPoints">Max Hit Points</label>
+                        <input type="text" th:field="*{maxHitpoints}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="currentHitPoints">Current Hit Points</label>
+                        <input type="text" th:field="*{currentHitPoints}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="temporaryHitPoints">Temporary Hit Points</label>
+                        <input type="text" th:field="*{temporaryHitPoints}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="maxHitDice">Max Hit Dice</label>
+                        <input type="text" th:field="*{maxHitDice}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="dexterity">Dexterity</label>
+                        <input type="text" th:field="*{dexterity}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="currentHitDice">Current Hit Dice</label>
+                        <input type="text" th:field="*{currentHitDice}" placeholder="Enter tile"/>
+                    </div>
+                    <div class="col-xl-12">
+                        <label for="biography">Biography</label>
+                        <input type="text" th:field="*{biography}" placeholder="Enter tile"/>
+                    </div>
+
                     <div class="col-xl-12">
                         <input id="save" class="" value="Create Post" type="submit"/>
                     </div>
