@@ -1,6 +1,5 @@
 package com.codeup.playground.Controllers;
 
-import com.codeup.playground.Models.Campaign;
 import com.codeup.playground.Models.Characters;
 import com.codeup.playground.Models.User;
 import com.codeup.playground.Repositories.CampaignRepo;
@@ -78,7 +77,7 @@ public class CharacterController {
         character.setMovement(movement);
         character.setMaxHitDice(maxHitDice);
         character.setTemporaryHitPoints(temporaryHitPoints);
-        character.setMaxHitpoints(maxHitPoints);
+        character.setMaxHitPoints(maxHitPoints);
         characterDao.save(character);
         return "redirect:/profile";
     }

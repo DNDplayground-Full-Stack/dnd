@@ -3,11 +3,29 @@
 <head th:replace="partials/head :: head('Profile')"></head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-
+<div class="container">
 <h1 class="text-center" th:text="'Welcome, ' + ${user.username}"></h1>
 
 <button><a th:href="@{/characters/create}">Create Character</a></button>
 
+<div class="card-columns mt-4">
+
+<div th:each="character : ${characters}">
+    <div th:if="${user.id == character.user.id}">
+        <div class="card shadow bg-white rounded">
+            <div class="card-body">
+                <h2 class="card-title text-center" th:text="${character.name}"></h2>
+                <h4 th:text="${character.campaign.name}"></h4>
+            </div>
+            <div class="card-footer">
+                    <h4 th:text="${character.user.username}"></h4>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</div>
+</div>
 <!--<div class="parent">-->
 <!--    <div class="mission card2">-->
 <!--     -->

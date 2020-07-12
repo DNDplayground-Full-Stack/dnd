@@ -1,7 +1,6 @@
 package com.codeup.playground.Models;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "characters")
@@ -73,8 +72,9 @@ public class Characters {
     @Column(nullable = false, columnDefinition = ("INT(11) UNSIGNED"))
     private int movement;
 
-    @Column(nullable = false, columnDefinition = ("INT(11) UNSIGNED"))
-    private int maxHitpoints;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(columnDefinition = ("INT(11) UNSIGNED"))
+    private int maxHitPoints;
 
     @Column(nullable = false, columnDefinition = ("INT(11) UNSIGNED"))
     private int currentHitPoints;
@@ -116,7 +116,7 @@ public class Characters {
         armourClass = copy.armourClass;
         initiative = copy.initiative;
         movement = copy.movement;
-        maxHitpoints = copy.maxHitpoints;
+        maxHitPoints = copy.maxHitPoints;
         currentHitPoints = copy.currentHitPoints;
         temporaryHitPoints = copy.temporaryHitPoints;
         maxHitDice = copy.maxHitDice;
@@ -124,7 +124,7 @@ public class Characters {
         biography = copy.biography;
     }
 
-    public Characters(String name, String race, String playerClass, String level, String imageUrl, User user, Campaign campaign, String background, String alignment, long xp, int proficiencyBonus, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int armourClass, int initiative, int movement, int maxHitpoints, int currentHitPoints, int temporaryHitPoints, int maxHitDice, int currentHitDice, String biography) {
+    public Characters(String name, String race, String playerClass, String level, String imageUrl, User user, Campaign campaign, String background, String alignment, long xp, int proficiencyBonus, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int armourClass, int initiative, int movement, int maxHitPoints, int currentHitPoints, int temporaryHitPoints, int maxHitDice, int currentHitDice, String biography) {
         this.name = name;
         this.race = race;
         this.playerClass = playerClass;
@@ -145,7 +145,7 @@ public class Characters {
         this.armourClass = armourClass;
         this.initiative = initiative;
         this.movement = movement;
-        this.maxHitpoints = maxHitpoints;
+        this.maxHitPoints = maxHitPoints;
         this.currentHitPoints = currentHitPoints;
         this.temporaryHitPoints = temporaryHitPoints;
         this.maxHitDice = maxHitDice;
@@ -313,12 +313,12 @@ public class Characters {
         this.movement = movement;
     }
 
-    public int getMaxHitpoints() {
-        return maxHitpoints;
+    public int getMaxHitPoints() {
+        return maxHitPoints;
     }
 
-    public void setMaxHitpoints(int maxHitpoints) {
-        this.maxHitpoints = maxHitpoints;
+    public void setMaxHitPoints(int maxHitpoints) {
+        this.maxHitPoints = maxHitpoints;
     }
 
     public int getCurrentHitPoints() {
