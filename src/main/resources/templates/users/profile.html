@@ -4,27 +4,41 @@
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 <div class="container">
-<h1 class="text-center" th:text="'Welcome, ' + ${user.username}"></h1>
+    <h1 class="text-center" th:text="'Welcome, ' + ${user.username}"></h1>
 
-<button><a th:href="@{/characters/create}">Create Character</a></button>
+    <button><a th:href="@{/characters/create}">Create Character</a></button>
 
-<div class="card-columns mt-4">
+    <div class="card-columns mt-4">
 
-<div th:each="character : ${characters}">
-    <div th:if="${user.id == character.user.id}">
-        <div class="card shadow bg-white rounded">
-            <div class="card-body">
-                <h2 class="card-title text-center" th:text="${character.name}"></h2>
-                <h4 th:text="${character.campaign.name}"></h4>
-            </div>
-            <div class="card-footer">
-                    <h4 th:text="${character.user.username}"></h4>
+        <div th:each="character : ${characters}">
+            <div th:if="${user.id == character.user.id}">
+                <div class="card shadow bg-white rounded">
+                    <div class="card-body">
+                        <h2 class="card-title text-center" th:text="${character.name}"></h2>
+                        <h4 th:text="${character.campaign.name}"></h4>
+                    </div>
+                    <div class="card-footer">
+                        <h4 th:text="${character.user.username}"></h4>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
 
-</div>
+        <hr/>
+
+        <div th:each="campaign : ${campaigns}">
+            <div th:if="${user.id == campaign.dm.id}">
+                <div class="card shadow bg-white rounded">
+                    <div class="card-body">
+                        <h2 class="card-title text-center" th:text="${campaign.name}"></h2>
+                        <h4 th:text="${campaign.description}"></h4>
+                    </div>
+                    <div class="card-footer">
+                        <h4 th:text="${campaign.dm.username}"></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
 </div>
 <!--<div class="parent">-->
 <!--    <div class="mission card2">-->
@@ -96,8 +110,8 @@
         var numDice = parseInt(document.getElementById('dice-num').value);
 
         //Generate values from input
-        for (var i=0; i<numDice; i++ ) {
-            dice.push(Math.floor(Math.random()*100%type)+1);
+        for (var i = 0; i < numDice; i++) {
+            dice.push(Math.floor(Math.random() * 100 % type) + 1);
         }
 
         //Display values generated
@@ -110,31 +124,29 @@
     document.getElementById('dice-num').value = "0";
 
 
-
-    document.getElementById("dice-num").addEventListener("keyup", function(event) {
+    document.getElementById("dice-num").addEventListener("keyup", function (event) {
         event.preventDefault();
         if (event.keyCode === 13) {
             diceRoll();
         }
     });
     //===========================================NPC GENERATING=========================================================
-    var firstName =["Edric","Bartholomew","Gwendolyn","Elsa","Angel","Francis","Clarence","Lester","Hilda","Elias"] ;
-    var lastName = ["Griffith","Leopald","Powell","Baker","Woodward","Hotchkiss","Savage","Beasley","Wellington","Helberg"];
-    var origin = ["Woodlands","Capital City","Farm Lands","Survivalist","Nobility","Slums","Traveling Merchant","Church Orphan","Military","Criminal"];
-    var occupation = ["Religious Advisor","Messenger","Shop Keep","Guard","Laborer","Craftsman","Scribe","Entertainer","Mercenary","Influential Leader"];
-    var personalityType = ["Approachable","Unapproachable","Aggressive","Friendly","Sarcastic","Shy","Dimwitted","Haughty","Flirtatious","Mute"];
-    var physicalDescriptions = ["Tall","Short","Chubby","Thin","Weathered","Ugly","Attractive","Built","Dapper","Unkempt"];
+    var firstName = ["Edric", "Bartholomew", "Gwendolyn", "Elsa", "Angel", "Francis", "Clarence", "Lester", "Hilda", "Elias"];
+    var lastName = ["Griffith", "Leopald", "Powell", "Baker", "Woodward", "Hotchkiss", "Savage", "Beasley", "Wellington", "Helberg"];
+    var origin = ["Woodlands", "Capital City", "Farm Lands", "Survivalist", "Nobility", "Slums", "Traveling Merchant", "Church Orphan", "Military", "Criminal"];
+    var occupation = ["Religious Advisor", "Messenger", "Shop Keep", "Guard", "Laborer", "Craftsman", "Scribe", "Entertainer", "Mercenary", "Influential Leader"];
+    var personalityType = ["Approachable", "Unapproachable", "Aggressive", "Friendly", "Sarcastic", "Shy", "Dimwitted", "Haughty", "Flirtatious", "Mute"];
+    var physicalDescriptions = ["Tall", "Short", "Chubby", "Thin", "Weathered", "Ugly", "Attractive", "Built", "Dapper", "Unkempt"];
 
 
-
-    var randomNum = function (){
-        return Math.floor(Math.random()*10);
+    var randomNum = function () {
+        return Math.floor(Math.random() * 10);
     };
 
 
     function generateNPC() {
         var text = "<div>";
-        text+= "Name: " + firstName[randomNum()] + " " + lastName[randomNum()] + "<br>" + "Origin: " + origin[randomNum()] + "<br>" + "Occupation: " + occupation[randomNum()] + "<br>" + "Personality: " + personalityType[randomNum()] + "<br>" +  "Description: " + physicalDescriptions[randomNum()];
+        text += "Name: " + firstName[randomNum()] + " " + lastName[randomNum()] + "<br>" + "Origin: " + origin[randomNum()] + "<br>" + "Occupation: " + occupation[randomNum()] + "<br>" + "Personality: " + personalityType[randomNum()] + "<br>" + "Description: " + physicalDescriptions[randomNum()];
         text += "</div>";
         var charText = document.getElementById('charText');
         charText.innerHTML = text.toString();
