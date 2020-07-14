@@ -20,7 +20,7 @@ public class Characters {
     private String playerClass;
 
     @Column(nullable = false)
-    private String level;
+    private int level;
 
     @Column
     private String imageUrl;
@@ -30,7 +30,7 @@ public class Characters {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "campaign")
+    @JoinColumn(name = "campaign", nullable = true)
     private Campaign campaign;
 
     @Column(length =25, nullable = false)
@@ -124,7 +124,7 @@ public class Characters {
         biography = copy.biography;
     }
 
-    public Characters(String name, String race, String playerClass, String level, String imageUrl, User user, Campaign campaign, String background, String alignment, long xp, int proficiencyBonus, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int armourClass, int initiative, int movement, int maxHitPoints, int currentHitPoints, int temporaryHitPoints, int maxHitDice, int currentHitDice, String biography) {
+    public Characters(String name, String race, String playerClass, int level, String imageUrl, User user, Campaign campaign, String background, String alignment, long xp, int proficiencyBonus, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int armourClass, int initiative, int movement, int maxHitPoints, int currentHitPoints, int temporaryHitPoints, int maxHitDice, int currentHitDice, String biography) {
         this.name = name;
         this.race = race;
         this.playerClass = playerClass;
@@ -183,14 +183,6 @@ public class Characters {
 
     public void setPlayerClass(String playerClass) {
         this.playerClass = playerClass;
-    }
-
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
     }
 
     public User getUser() {
@@ -367,5 +359,13 @@ public class Characters {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 }

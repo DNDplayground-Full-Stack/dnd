@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" class="m-0 p-0 h-100" lang="en">
+<head th:replace="partials/head :: head('Profile')"></head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+<div class="container">
+
+    <h1 th:text="'Character: ' + ${character.name}"></h1>
+
+    <h1 th:text="'Character: ' + ${character.biography}"></h1>
+
+    <h1 th:text="'Character: ' + ${character.alignment}"></h1>
+
+    <h1 th:text="'Character: ' + ${character.intelligence}"></h1>
+
+    <h1 th:text="'Character: ' + ${character.background}"></h1>
+
+    <h1 th:text="'Character: ' + ${character.race}"></h1>
+
+    <h1 th:text="'Character: ' + ${character.playerClass}"></h1>
+
+    <h1 th:text="'Character: ' + ${character.level}"></h1>
+
+
+    <div th:if="${character.campaign != null}">
+        <h4 th:text="${character.campaign.name}"></h4>
+    </div>
+    <h4 th:text="${character.user.username}"></h4>
+</div>
+
+
+</body>
+</html>

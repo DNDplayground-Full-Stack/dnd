@@ -14,8 +14,15 @@
             <div th:if="${user.id == character.user.id}">
                 <div class="card shadow bg-white rounded">
                     <div class="card-body">
-                        <h2 class="card-title text-center" th:text="${character.name}"></h2>
-                        <h4 th:text="${character.campaign.name}"></h4>
+<!--                        <a th:href="@{/character/${character.id}}">-->
+<!--                            <h2 class="card-title text-center" th:text="'Character: ' + ${character.name}"></h2>-->
+<!--                        </a>-->
+                        <a th:href="@{|/character/${character.id}|}">
+                            <h2 class="card-title text-center" th:text="'Character: ' + ${character.name}"></h2>
+                        </a>
+                        <div th:if="${character.campaign != null}">
+                            <h4 th:text="${character.campaign.name}"></h4>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <h4 th:text="${character.user.username}"></h4>
@@ -30,7 +37,7 @@
             <div th:if="${user.id == campaign.dm.id}">
                 <div class="card shadow bg-white rounded">
                     <div class="card-body">
-                        <h2 class="card-title text-center" th:text="${campaign.name}"></h2>
+                        <h2 class="card-title text-center" th:text="'Campaign: ' + ${campaign.name}"></h2>
                         <h4 th:text="${campaign.description}"></h4>
                     </div>
                     <div class="card-footer">

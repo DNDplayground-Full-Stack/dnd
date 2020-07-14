@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -36,6 +37,17 @@ public class CharacterController {
         return "characters/create";
     }
 
+    @GetMapping("/character/{id}")
+    public String individualView(Model model, @PathVariable long id){
+        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() != "anonymousUser") {
+            User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            model.addAttribute("user", loggedIn);
+        }
+        Characters character = characterDao.getOne(id);
+        model.addAttribute("character", character);
+        return "characters/individualView";
+    }
+
     @PostMapping("/characters/create")
     public String postCharacterCreate(
             @RequestParam(name = "alignment") String alignment, @RequestParam(name = "armourClass") int armourClass,
@@ -44,7 +56,7 @@ public class CharacterController {
             @RequestParam(name = "currentHitDice") int currentHitDice, @RequestParam(name = "dexterity") int dexterity,
             @RequestParam(name = "currentHitPoints") int currentHitPoints, @RequestParam(name = "initiative") int initiative,
             @RequestParam(name = "name") String name, @RequestParam(name = "race") String race,
-            @RequestParam(name = "playerClass") String playerClass, @RequestParam(name = "level") String level,
+            @RequestParam(name = "playerClass") String playerClass, @RequestParam(name = "level") int level,
             @RequestParam(name = "xp") int xp, @RequestParam(name = "proficiencyBonus") int proficiencyBonus,
             @RequestParam(name = "strength") int strength, @RequestParam(name = "intelligence") int intelligence,
             @RequestParam(name = "wisdom") int wisdom, @RequestParam(name = "movement") int movement,
@@ -57,7 +69,7 @@ public class CharacterController {
         character.setArmourClass(armourClass);
         character.setBackground(background);
         character.setBiography(biography);
-        character.setCampaign(campaignDao.getOne(1L));
+//        character.setCampaign(campaignDao.getOne(1L));
         character.setCharisma(charisma);
         character.setConstitution(constitution);
         character.setCurrentHitDice(currentHitDice);
