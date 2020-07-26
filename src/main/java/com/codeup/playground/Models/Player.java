@@ -37,4 +37,20 @@ public class Player {
     public void setAccepted(Boolean accepted) {
         this.accepted = accepted;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Campaign getCampaign() {
+        return campaign;
+    }
+
+    public void setCampaign(Campaign campaign) {
+        this.campaign = campaign;
+    }
 }

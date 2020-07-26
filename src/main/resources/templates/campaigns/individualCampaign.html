@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" class="m-0 p-0 h-100" lang="en">
 <head th:replace="partials/head :: head('Campaign')"></head>
-
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-individual campaign
+<div class="container">
+
+    <h1 th:text="${campaign.name}"></h1>
+
+    <h1 th:text="${campaign.description}"></h1>
+
+    <h1 th:text="${campaign.dm.username}"></h1>
+
+    <div th:each="player : ${players}">
+        <div th:if="${player.campaign.id == campaign.id}">
+            <h4 th:text="${player.user.username}"></h4>
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>

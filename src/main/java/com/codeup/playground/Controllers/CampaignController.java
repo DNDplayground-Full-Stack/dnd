@@ -1,8 +1,10 @@
 package com.codeup.playground.Controllers;
 
 import com.codeup.playground.Models.Campaign;
+import com.codeup.playground.Models.Characters;
 import com.codeup.playground.Models.User;
 import com.codeup.playground.Repositories.CampaignRepo;
+import com.codeup.playground.Repositories.PlayerRepo;
 import com.codeup.playground.Repositories.UserRepo;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -16,10 +18,12 @@ public class CampaignController {
 
     private UserRepo userDoa;
     private CampaignRepo campaignDao;
+    private PlayerRepo playerDao;
 
-    public CampaignController(UserRepo userDoa, CampaignRepo campaignDao) {
+    public CampaignController(UserRepo userDoa, CampaignRepo campaignDao, PlayerRepo playerDao) {
         this.userDoa = userDoa;
         this.campaignDao = campaignDao;
+        this.playerDao = playerDao;
     }
 
     @GetMapping("/campaigns")
@@ -78,20 +82,26 @@ public class CampaignController {
         return "redirect:/campaigns/index";
     }
 
-//    @PostMapping("/campaign/{id}")
-//    public String viewIndividualPost(@PathVariable long id, Model model) {
+//    @GetMapping("/campaigns/{id}")
+//    public String getIndividualPost(Model model, @PathVariable long id) {
+//        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() != "anonymousUser") {
+//            User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//            model.addAttribute("user", loggedIn);
+//        }
 //        Campaign campaign = campaignDao.getOne(id);
 //        model.addAttribute("campaign", campaign);
-//        return "campaign";
+//        return "campaigns/individualCampaign";
 //    }
-    @GetMapping("/campaigns/{id}")
-    public String getIndividualPost(Model model, @PathVariable long id) {
+
+    @GetMapping("/campaign/{id}")
+    public String individualViewCampaign(Model model, @PathVariable long id){
         if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() != "anonymousUser") {
             User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             model.addAttribute("user", loggedIn);
         }
         Campaign campaign = campaignDao.getOne(id);
         model.addAttribute("campaign", campaign);
+        model.addAttribute("players", playerDao.findAll());
         return "campaigns/individualCampaign";
     }
 }
